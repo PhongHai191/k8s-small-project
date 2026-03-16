@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: webapp
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      nodeSelector:
+        role: backend
+
+      containers:
+      - name: backend
+        image: yance1/webapp-backend:1.0
+
+        ports:
+        - containerPort: 5000
+
+        env:
+        - name: DB_HOST
+          value: postgres
+
+        - name: DB_USER
+          value: postgres
+
+        - name: DB_PASSWORD
+          value: password
+
+        - name: DB_NAME
+          value: webapp
