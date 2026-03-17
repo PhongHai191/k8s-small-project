@@ -8,7 +8,7 @@ function Signup(){
 
  const signup = async ()=>{
 
-  await axios.post("http://backend-service:5000/auth/signup",{
+  await axios.post("/auth/signup",{
 
    username,
    password
