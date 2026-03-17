@@ -15,10 +15,10 @@ function ProductPage(){
 
  useEffect(()=>{
 
-  axios.get("http://backend-service:5000/products/"+id)
+  axios.get("/products/"+id)
   .then(res=>setProduct(res.data))
 
-  axios.get("http://backend-service:5000/reviews/"+id)
+  axios.get("/reviews/"+id)
   .then(res=>setReviews(res.data))
 
  },[id])
@@ -28,7 +28,7 @@ function ProductPage(){
 
   try{
 
-   await axios.post("http://backend-service:5000/reviews",{
+   await axios.post("/reviews",{
 
     product_id:id,
     review:newReview
