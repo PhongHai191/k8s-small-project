@@ -12,7 +12,7 @@ function Login(){
   try{
 
    await axios.post(
-    "http://backend-service:5000/auth/login",
+    "/auth/login",
     {username,password},
     {withCredentials:true}
    )
