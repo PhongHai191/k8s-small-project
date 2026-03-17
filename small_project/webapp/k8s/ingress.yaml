@@ -9,12 +9,35 @@ spec:
 
   rules:
   - host: webapp.local
-
     http:
       paths:
+
+      - path: /products
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 5000
+
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 5000
+
+      - path: /reviews
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 5000
+
       - path: /
         pathType: Prefix
-
         backend:
           service:
             name: frontend-service
