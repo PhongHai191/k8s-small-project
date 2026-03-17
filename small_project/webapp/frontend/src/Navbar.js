@@ -8,7 +8,7 @@ function Navbar(){
 
  useEffect(()=>{
 
-  axios.get("http://backend-service:5000/auth/me",{withCredentials:true})
+  axios.get("/auth/me",{withCredentials:true})
   .then(res=>{
    setLoggedIn(res.data.loggedIn)
   })
@@ -18,7 +18,7 @@ function Navbar(){
 
  const logout = async()=>{
 
-  await axios.post("http://backend-service:5000/auth/logout",{},{
+  await axios.post("/auth/logout",{},{
    withCredentials:true
   })
 
